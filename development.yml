@@ -1,0 +1,44 @@
+#
+# Development docker-compose configuration.
+#
+
+version: "2.8"
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+
+    # Override command for development
+    command: ["sh", "wait_for_postgresql.sh", "python3", "manage.py", "runserver", "0.0.0.0:8000"]
+
+    depends_on:
+      - "db"
+
+    environment:
+      DEBUG: 1
+
+      DJANGO_DB_ENGINE: 'django.db.backends.postgresql_psycopg2'
+      DJANGO_DB_NAME: fluendo_todo
+      DJANGO_DB_USER: fluendo_todo
+      DJANGO_DB_PASSWORD: mysecret
+      DJANGO_DB_HOST: db
+      DJANGO_DB_PORT: 5432
+
+    ports:
+      - 8000:8000
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: fluendo_todo
+      POSTGRES_DB: fluendo_todo
+      POSTGRES_PASSWORD: mysecret
+
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
