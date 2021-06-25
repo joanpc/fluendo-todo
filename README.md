@@ -1,6 +1,8 @@
 # My Solution
 
-I've implemented a todo list CRUD with token authentication.
+I've implemented a todo list CRUD with token authentication. 
+The code can be tested with and without docker.
+I also wrote tests for the todo CRUD.
 
 
 # Setup
