@@ -49,8 +49,9 @@ I need to provide a user and password to get a token to add to subsequents calls
     -d '{"username": "joan", "password": "12345"}' \
     -H 'Content-Type: application/json'
 
-    # Set an env variable with the new generated token
-    export TOKEN=8322c32c70ea9cde7cc114bcfc9e7fa4c96e9ce4
+Set an env variable with the new generated token
+
+    export TOKEN=XXXXXXXXXXXXXXXXXXXXXXX
 
 ### As an API user, I want to create a new Todo item
 
