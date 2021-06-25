@@ -1,0 +1,8 @@
+.git
+.gitignore
+database.json
+db.sqlite3
+env/
+venv/
+.gitlab-ci.yml
+__pycache__
